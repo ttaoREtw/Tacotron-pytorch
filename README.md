@@ -41,16 +41,16 @@ $ python main.py --config config/config.yaml \
 
 # Restart training
 $ python main.py --config config/config.yaml \
-                 --checkpoint-dir <DESIRED_OUTPUT_PATH> \
+                 --checkpoint-dir <WHERE_TO_PUT_YOUR_CHECKPOINTS> \
                  --checkpoint-path <LAST_CHECKPOINT_PATH>
 ```
 
 * Inference
 ```bash
 # Generate synthesized speech 
-$ python generate_speech.py --text <WHATEVER YOU WANT> \
-                            --output <WHERE TO PUT OUTPUT FILE> \ 
-                            --checkpoint-path <CHECKPOINT PATH> \
+$ python generate_speech.py --text "For example, Taiwan is a great place." \
+                            --output <DESIRED_OUTPUT_PATH> \ 
+                            --checkpoint-path <CHECKPOINT_PATH> \
                             --config config/config.yaml
 ```
 
