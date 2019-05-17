@@ -1,11 +1,11 @@
 # A Pytorch Implementation of Tacotron: End-to-end Text-to-speech Deep-Learning Model
 Implement google's [Tacotron](https://arxiv.org/abs/1703.10135) TTS system with pytorch. 
-![tacotron](arch_fig.jpg)
+![tacotron](asset/arch_fig.jpg)
 
 ## Updates
-2018.09.15 : Fix RNN feeding bug.  
-2018.11.04 : Add attention mask and loss mask.  
-2019.05.17 : 2nd version updated.  
+2018/09/15 => Fix RNN feeding bug.  
+2018/11/04 => Add attention mask and loss mask.  
+2019/05/17 => 2nd version updated.  
 
 
 ## Requirements
@@ -76,7 +76,6 @@ Proper alignment occurs after **10k** steps of updating.
 
 
 ## Refenrence
-Original paper of Tacotron : [link](https://arxiv.org/abs/1703.10135)  
-r9y9's implementation : [link](https://github.com/r9y9/tacotron_pytorch)
-
+[link](https://arxiv.org/abs/1703.10135) Original paper of Tacotron   
+[link](https://github.com/r9y9/tacotron_pytorch) r9y9's implementation 
 Finally, this is the code used in my work ["End-to-end Text-to-speech for Low-resource Languages by Cross-Lingual Transfer Learning"](https://arxiv.org/abs/1904.06508). 
