@@ -45,6 +45,14 @@ $ python main.py --config config/config.yaml \
                  --checkpoint-path <LAST_CHECKPOINT_PATH>
 ```
 
+* Examine the training process
+```bash
+# Scalars : loss curve 
+# Audio   : validation wavs
+# Images  : validation spectrograms & attentions
+$ tensorboard --logdir log
+```
+
 * Inference
 ```bash
 # Generate synthesized speech 
