@@ -1,75 +1,74 @@
 # A Pytorch Implementation of Tacotron: End-to-end Text-to-speech Deep-Learning Model
-[INFO - 20190514] I will update this project in a few weeks. The performance of the new version code is much better than the current version. 
-
-Implement google's [Tacotron](https://arxiv.org/abs/1703.10135) TTS system with pytorch. This is just my preliminary work, so there are many parts could be improved. I will boost the performance when I have time.  
+Implement google's [Tacotron](https://arxiv.org/abs/1703.10135) TTS system with pytorch. 
 ![tacotron](arch_fig.jpg)
 
 ## Updates
-2018/09/15: Fix RNN feeding bug.  
-2018/11/04: Add attention mask and loss mask.
+2018.09.15 : Fix RNN feeding bug.  
+2018.11.04 : Add attention mask and loss mask.  
+2019.05.17 : 2nd version updated.  
 
 
 ## Requirements
-Download python and pytorch.  
-* python==3.6.5
-* pytorch==0.4.1  
-
-You can use requirements.txt to download packages below.
-```bash
-# I recommend you use virtualenv.
-$ pip install -r requirements.txt
-```
-* librosa  
-* numpy  
-* pandas  
-* scipy  
-* matplotlib  
+See `used_packages.txt`.
 
 
 ## Usage
 
 * Data  
-Download [LJSpeech](https://keithito.com/LJ-Speech-Dataset/) provided by keithito. It contains 13100 short audio clips of a single speaker. The total length is approximately 20 hrs.
+Download [LJSpeech](https://keithito.com/LJ-Speech-Dataset/) provided by keithito. It contains 13100 short audio clips of a single speaker. The total length is approximately 24 hrs.
 
-* Set config.    
-```python
-# Set the 'meta_path' and 'wav_dir' in `hyperparams.py` to paths of your downloaded LJSpeech's meta file and wav directory.
-meta_path = 'Data/LJSpeech-1.1/metadata.csv'
-wav_dir = 'Data/LJSpeech-1.1/wavs'
+* Preprocessing
+```bash
+# Generate a directory 'training/' containing extracted features and a new meta file 'ljspeech_meta.txt'
+$ python data/preprocess.py --output-dir training \ 
+                            --data-dir <WHERE YOU PUT YOUR DATASET>/LJSpeech-1.1/wavs \
+                            --old-meta <WHERE YOU PUT YOUR DATASET>/LJSpeech-1.1/metadata.csv \
+                            --config config/config.yaml
+```
+
+* Split dataset
+```bash
+# Generate 'meta_train.txt' and 'meta_test.txt' in 'training/'
+$ python data/train_test_split.py --meta-all training/ljspeech_meta.txt \ 
+                                  --ratio-test 0.1
 ```
 
 * Train
 ```bash
-# If you have pretrained model, add --ckpt <ckpt_path>
-$ python main.py --train --cuda
+# Start training
+$ python main.py --config config/config.yaml \
+                 --checkpoint-dir <WHERE YOU WANT TO PUT YOUR CHECKPOINTS> 
+
+# Restart training
+$ python main.py --config config/config.yaml \
+                 --checkpoint-dir <WHERE YOU WANT TO PUT YOUR CHECKPOINTS> \
+                 --checkpoint-path <LAST CHECKPOINT PATH>
 ```
 
-* Evaluate 
+* Inference
 ```bash
-# You can change the evaluation texts in `hyperparams.py`
-# ckpt files are saved in 'tmp/ckpt/' in default
-$ python main.py --eval --cuda --ckpt <ckpt_timestep.pth.tar>
+# Generate synthesized speech 
+$ python generate_speech.py --text <WHATEVER YOU WANT> \
+                            --output <WHERE TO PUT OUTPUT FILE> \ 
+                            --checkpoint-path <CHECKPOINT PATH> \
+                            --config config/config.yaml
 ```
+
 
 ## Samples
-The sample texts is based on [Harvard Sentences](http://www.cs.columbia.edu/~hgs/audio/harvard.html). See the samples at `samples/` which are generated after training 200k.
+I will update the samples later.
 
 ## Alignment
-The model starts learning something at 30k.
-![alignment](alignment.gif)
+Proper alignment occurs after 10k steps of updating.
 
 
 ## Differences from the original Tacotron
-1. Data bucketing (Original Tacotron used loss mask)
-2. Remove residual connection in decoder_CBHG
-3. Batch size is set to 8
-4. Gradient clipping
-5. Noam style learning rate decay (The mechanism that [Attention is all you need](https://arxiv.org/abs/1706.03762) applies.)
+1. Gradient clipping
+2. Noam style learning rate decay (The mechanism that [Attention is all you need](https://arxiv.org/abs/1706.03762) applies.)
 
 
 ## Refenrence
-1. (Tensorflow) Kyubyong's  [implementation](https://github.com/Kyubyong/tacotron)
-2. (Tensorflow) acetylSv's  [implementation](https://github.com/acetylSv/GST-tacotron)
-3. (Pytorch)    soobinseo's [implementaition](https://github.com/soobinseo/Tacotron-pytorch)  
+[Original paper](https://arxiv.org/abs/1703.10135)  
+[r9y9's implementation](https://github.com/r9y9/tacotron_pytorch)
 
-Finally, I have to say this work is highly based on Kyubyong's work, so if you are a tensorflow user, you may want to see his work. Also, feel free to give some feedbacks!
+Finally, this code is used in my work ["End-to-end Text-to-speech for Low-resource Languages by Cross-Lingual Transfer Learning"](https://arxiv.org/abs/1904.06508). 
