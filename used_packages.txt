@@ -6,3 +6,4 @@ yaml            # Config parser
 soundfile       # Save audio
 tensorboardX    # Tensorboard for pytorch
 tqdm            # Verbosity
+torch           # Deep learning platform
