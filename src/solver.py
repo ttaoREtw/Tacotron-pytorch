@@ -7,7 +7,7 @@ from pathlib import Path
 from tensorboardX import SummaryWriter
 from .dataset import getDataLoader
 from .module import Tacotron
-from .utils import AudioProcessor, make_spec_figure, make_attn_figure #save_states, plot_alignment, save_spectrogram
+from .utils import AudioProcessor, make_spec_figure, make_attn_figure
 import shutil
 
 class Solver(object):
