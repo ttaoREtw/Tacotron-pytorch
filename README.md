@@ -76,6 +76,6 @@ Proper alignment occurs after **10k** steps of updating.
 
 
 ## Refenrence
-[link](https://arxiv.org/abs/1703.10135) Original paper of Tacotron   
-[link](https://github.com/r9y9/tacotron_pytorch) r9y9's implementation 
+[[link](https://arxiv.org/abs/1703.10135)] Original paper of Tacotron   
+[[link](https://github.com/r9y9/tacotron_pytorch)] r9y9's implementation   
 Finally, this is the code used in my work ["End-to-end Text-to-speech for Low-resource Languages by Cross-Lingual Transfer Learning"](https://arxiv.org/abs/1904.06508). 
