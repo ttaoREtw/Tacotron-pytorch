@@ -1,0 +1,8 @@
+librosa         # Process audio
+matplotlib      # Plot spectrogram and attention
+numpy           # Fundamental package for scientific computing
+scipy           # Use signal.lfilter
+yaml            # Config parser
+soundfile       # Save audio
+tensorboardX    # Tensorboard for pytorch
+tqdm            # Verbosity
