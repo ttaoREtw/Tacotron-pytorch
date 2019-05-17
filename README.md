@@ -82,6 +82,6 @@ Proper alignment occurs after **10k** steps of updating.
 This work is mainly based on r9y9's [implementation](https://github.com/r9y9/tacotron_pytorch) of Tacotron, however, my implementation is more user-friendly.
 
 ## Refenrence
-[[link](https://arxiv.org/abs/1703.10135)] Original paper of Tacotron   
+* Tacotron: Towards End-to-End Speech Synthesis [[link](https://arxiv.org/abs/1703.10135)]
 
 Finally, this is the code used in my work ["End-to-end Text-to-speech for Low-resource Languages by Cross-Lingual Transfer Learning"](https://arxiv.org/abs/1904.06508). 
