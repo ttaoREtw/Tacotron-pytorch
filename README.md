@@ -21,8 +21,8 @@ Download [LJSpeech](https://keithito.com/LJ-Speech-Dataset/) provided by keithit
 ```bash
 # Generate a directory 'training/' containing extracted features and a new meta file 'ljspeech_meta.txt'
 $ python data/preprocess.py --output-dir training \ 
-                            --data-dir <WHERE YOU PUT YOUR DATASET>/LJSpeech-1.1/wavs \
-                            --old-meta <WHERE YOU PUT YOUR DATASET>/LJSpeech-1.1/metadata.csv \
+                            --data-dir <WHERE_YOU_PUT_YOUR_DATASET>/LJSpeech-1.1/wavs \
+                            --old-meta <WHERE_YOU_PUT_YOUR_DATASET>/LJSpeech-1.1/metadata.csv \
                             --config config/config.yaml
 ```
 
@@ -37,12 +37,12 @@ $ python data/train_test_split.py --meta-all training/ljspeech_meta.txt \
 ```bash
 # Start training
 $ python main.py --config config/config.yaml \
-                 --checkpoint-dir <WHERE YOU WANT TO PUT YOUR CHECKPOINTS> 
+                 --checkpoint-dir <WHERE_TO_PUT_YOUR_CHECKPOINTS> 
 
 # Restart training
 $ python main.py --config config/config.yaml \
-                 --checkpoint-dir <WHERE YOU WANT TO PUT YOUR CHECKPOINTS> \
-                 --checkpoint-path <LAST CHECKPOINT PATH>
+                 --checkpoint-dir <DESIRED_OUTPUT_PATH> \
+                 --checkpoint-path <LAST_CHECKPOINT_PATH>
 ```
 
 * Inference
@@ -56,10 +56,10 @@ $ python generate_speech.py --text <WHATEVER YOU WANT> \
 
 
 ## Samples
-I will update the samples later.
+All the samples can be found [here](https://github.com/ttaoREtw/Tacotron-pytorch/tree/master/samples). These samples are generated after 102k updates.
 
 ## Alignment
-Proper alignment occurs after 10k steps of updating.
+Proper alignment occurs after **10k** steps of updating.
 
 
 ## Differences from the original Tacotron
@@ -68,7 +68,7 @@ Proper alignment occurs after 10k steps of updating.
 
 
 ## Refenrence
-[Original paper](https://arxiv.org/abs/1703.10135)  
-[r9y9's implementation](https://github.com/r9y9/tacotron_pytorch)
+Original paper of Tacotron : [link](https://arxiv.org/abs/1703.10135)  
+r9y9's implementation : [link](https://github.com/r9y9/tacotron_pytorch)
 
-Finally, this code is used in my work ["End-to-end Text-to-speech for Low-resource Languages by Cross-Lingual Transfer Learning"](https://arxiv.org/abs/1904.06508). 
+Finally, this is the code used in my work ["End-to-end Text-to-speech for Low-resource Languages by Cross-Lingual Transfer Learning"](https://arxiv.org/abs/1904.06508). 
