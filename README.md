@@ -70,8 +70,13 @@ $ python generate_speech.py --text "For example, Taiwan is a great place." \
 ## Samples
 All the samples can be found [here](https://github.com/ttaoREtw/Tacotron-pytorch/tree/master/samples). These samples are generated after 102k updates.
 
+
+## Checkpoint
+The pretrained model can be found in `ckpt/`.
+
+
 ## Alignment
-Proper alignment occurs after **10k** steps of updating.
+The proper alignment shows after **10k** steps of updating.
 
 
 ## Differences from the original Tacotron
@@ -79,9 +84,8 @@ Proper alignment occurs after **10k** steps of updating.
 2. Noam style learning rate decay (The mechanism that [Attention is all you need](https://arxiv.org/abs/1706.03762) applies.)
 
 ## Acknowlegements
-This work is mainly based on r9y9's [implementation](https://github.com/r9y9/tacotron_pytorch) of Tacotron, however, my implementation is more user-friendly.
+This work is roughly based on r9y9's [implementation](https://github.com/r9y9/tacotron_pytorch) of Tacotron.
 
 ## Refenrence
 * Tacotron: Towards End-to-End Speech Synthesis [[link](https://arxiv.org/abs/1703.10135)]
 
-Finally, this is the code used in my work ["End-to-end Text-to-speech for Low-resource Languages by Cross-Lingual Transfer Learning"](https://arxiv.org/abs/1904.06508). 
