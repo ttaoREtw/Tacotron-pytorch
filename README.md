@@ -72,7 +72,7 @@ All the samples can be found [here](https://github.com/ttaoREtw/Tacotron-pytorch
 
 
 ## Checkpoint
-The pretrained model can be found in `ckpt/`.
+The pretrained model can be downloaded in this [link](https://drive.google.com/file/d/1q8xLo9zyyclIDgYk3V2mczofnQwqT6pk/view?usp=sharing).
 
 
 ## Alignment
