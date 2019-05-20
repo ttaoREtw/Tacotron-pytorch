@@ -43,7 +43,7 @@ $ python data/train_test_split.py --meta-all training/ljspeech_meta.txt \
 $ python main.py --config config/config.yaml \
                  --checkpoint-dir <WHERE_TO_PUT_YOUR_CHECKPOINTS> 
 
-# Restart training
+# Continue training
 $ python main.py --config config/config.yaml \
                  --checkpoint-dir <WHERE_TO_PUT_YOUR_CHECKPOINTS> \
                  --checkpoint-path <LAST_CHECKPOINT_PATH>
