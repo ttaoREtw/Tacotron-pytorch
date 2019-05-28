@@ -6,6 +6,7 @@ Implement google's [Tacotron](https://arxiv.org/abs/1703.10135) TTS system with 
 2018/09/15 => Fix RNN feeding bug.  
 2018/11/04 => Add attention mask and loss mask.  
 2019/05/17 => 2nd version updated.  
+2019/05/28 => fix attention plot bug.  
 
 ## TODO
 - [ ] Add vocoder
