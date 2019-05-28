@@ -232,7 +232,7 @@ class Trainer(Solver):
             NUM_GL = 5
             if curr_b < NUM_GL:
                 fig_spec = make_spec_figure(linear_outputs[0].cpu().numpy(), self.audio_processor)
-                fig_attn = make_attn_figure(attn[0].cpu().numpy())
+                fig_attn = make_attn_figure(attn[0].cpu().numpy().T)
                 # Predicted audio signal
                 waveform = self.audio_processor.inv_spectrogram(linear_outputs[0].cpu().numpy().T)
                 waveform = np.clip(waveform, -1, 1)
