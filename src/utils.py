@@ -103,7 +103,7 @@ def make_spec_figure(spec, audio_processor):
 def make_attn_figure(attn):
     fig, ax = plt.subplots()
     im = ax.imshow(
-        attn,
+        attn.T,
         aspect='auto',
         origin='lower',
         interpolation='none')
