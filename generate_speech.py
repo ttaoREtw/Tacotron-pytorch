@@ -21,7 +21,7 @@ def generate_speech(args):
 
 
 def load_ckpt(config, ckpt_path):
-    ckpt = torch.load(ckpt_path)
+    ckpt = torch.load(ckpt_path, map_location=torch.device('cpu'))
     model = Tacotron(**config['model']['tacotron'])
     model.load_state_dict(ckpt['state_dict'])
     # This yeilds the best performance, not sure why
