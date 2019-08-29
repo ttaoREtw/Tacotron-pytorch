@@ -85,7 +85,7 @@ The proper alignment shows after **10k** steps of updating.
 2. Noam style learning rate decay (The mechanism that [Attention is all you need](https://arxiv.org/abs/1706.03762) applies.)
 
 ## Acknowlegements
-This work is roughly based on r9y9's [implementation](https://github.com/r9y9/tacotron_pytorch) of Tacotron.
+This work is based on r9y9's [implementation](https://github.com/r9y9/tacotron_pytorch) of Tacotron.
 
 ## Refenrence
 * Tacotron: Towards End-to-End Speech Synthesis [[link](https://arxiv.org/abs/1703.10135)]
