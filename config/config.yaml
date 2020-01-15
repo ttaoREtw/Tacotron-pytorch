@@ -29,12 +29,13 @@ solver:
     # Data config. 
     meta_path: {'train': 'training/meta_train.txt', 'test': 'training/meta_test.txt'}
     data_dir: 'training'
-    n_jobs: 2
+    n_jobs: 4
     # Training config.
     batch_size: 32
     grad_clip: 1.0
     total_steps: 400000
-    checkpoint_interval: 2000
+    validation_interval: 2000
+    save_checkpoint_interval: 10000
     # log
     log_interval: 10
 

@@ -20,7 +20,7 @@ if __name__ == '__main__':
     args.gpu = not args.cpu
     args.verbose = not args.no_msg
 
-    config = yaml.load(open(args.config, 'r'))
+    config = yaml.load(open(args.config, 'r'), Loader=yaml.FullLoader)
 
     # Set seed
     random.seed(args.seed)

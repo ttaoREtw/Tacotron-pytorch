@@ -156,15 +156,18 @@ class Trainer(Solver):
                     log = '[{}] total_loss: {:.3f}. mel_loss: {:.3f}, linear_loss: {:.3f}, grad_norm: {:.3f}, lr: {:.5f}'.format(self.step, loss.item(), mel_loss.item(), linear_loss.item(), grad_norm, current_lr)
                     self.progress(log)
 
-                if self.step % self.config['solver']['checkpoint_interval'] == 0 and local_step != 0:
+                if self.step % self.config['solver']['validation_interval'] == 0 and local_step != 0:
                     with torch.no_grad():
                         val_err = self.validate()
                     if val_err < self.best_val_err:
                         # Save checkpoint
                         self.save_ckpt()
                         self.best_val_err = val_err
-
                     self.model.train()
+
+                if self.step % self.config['solver']['save_checkpoint_interval'] == 0 and local_step != 0:
+                    self.save_ckpt()
+
                 # Global step += 1
                 self.step += 1
                 local_step += 1
@@ -241,7 +244,7 @@ class Trainer(Solver):
                 self.log_writer.add_figure('attn-%d' % curr_b, fig_attn, self.step)
                 self.log_writer.add_audio('wav-%d' % curr_b, waveform, self.step, sample_rate=fs)
             # Perform Griffin-Lim to generate waveform: "GL"
-            header = '[GL-{}/{}]'.format(curr_b + 1, 5) if curr_b < NUM_GL else '[VAL-{}/{}]'.format(curr_b + 1, len(self.data_va))
+            header = '[GL-{}/{}]'.format(curr_b + 1, NUM_GL) if curr_b < NUM_GL else '[VAL-{}/{}]'.format(curr_b + 1, len(self.data_va))
             # Terminal log
             log = header + ' total_loss: {:.3f}. mel_loss: {:.3f}, linear_loss: {:.3f}'.format(
                     loss.item(), mel_loss.item(), linear_loss.item())

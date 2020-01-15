@@ -17,7 +17,7 @@ from pathlib import Path
 
 def preprocess(args):
     with open(args.config) as f:
-        config = yaml.load(f)
+        config = yaml.load(f, Loader=yaml.FullLoader)
 
     # Make directory if not exist
     os.makedirs(args.output_dir, exist_ok=True)

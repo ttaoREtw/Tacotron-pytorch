@@ -76,7 +76,7 @@ def collate_fn(batch, r):
     input_lengths = [len(x[0]) for x in batch]
     max_input_len = np.max(input_lengths)
     # (r9y9's comment) Add single zeros frame at least, so plus 1
-    max_target_len = np.max([len(x[1]) for x in batch]) # + 1
+    max_target_len = np.max([len(x[1]) for x in batch]) + 1
     if max_target_len % r != 0:
         max_target_len += r - max_target_len % r
         assert max_target_len % r == 0
