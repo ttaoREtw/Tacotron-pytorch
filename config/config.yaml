@@ -31,7 +31,7 @@ solver:
     data_dir: 'training'
     n_jobs: 4
     # Training config.
-    batch_size: 32
+    batch_size: 16
     grad_clip: 1.0
     total_steps: 400000
     validation_interval: 2000
